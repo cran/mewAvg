@@ -1,0 +1,2 @@
+export(mewAvg)
+useDynLib(mewAvg)
