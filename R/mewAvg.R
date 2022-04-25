@@ -7,7 +7,10 @@
 #' @details See the examples for the functions \code{mewMean} and
 #' \code{mewAvg} for the details of use.
 #'
-#' @references Still to be added
+#' @references
+#' Levine, Z. H., & Pintar, A. L. (2015). A fixed-memory moving,
+#' expanding window for obtaining scatter corrections in x-ray CT and other
+#' stochastic averages. Computer Physics Communications, 196, 455-459.
 #'
 #' @name mewAvg-package
 NULL

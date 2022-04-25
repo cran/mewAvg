@@ -25,7 +25,7 @@ setMethod("show",
             } else {
 
               cat("Only the first six elements are shown\n")
-              print(head(object@x_mean))
+              print(utils::head(object@x_mean))
             }
 
             invisible(0)

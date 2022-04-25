@@ -86,7 +86,7 @@
 #'
 #' @export
 #'
-#' @useDynLib mewAvg
+#' @useDynLib mewAvg, .registration = TRUE
 mewAccum <- function (xx, av) {
 
   ## Adam comment
@@ -116,7 +116,7 @@ mewAccum <- function (xx, av) {
     i_new <- as.integer(i_new + 1)
     av@n_bin_use <- as.integer(av@n_bin_use + 1)
 
-    .Call("replaceCol",
+    .Call(replaceCol,
           av@xx,
           xx,
           as.integer(i_new - 1), ## C index starts at zero
@@ -126,13 +126,13 @@ mewAccum <- function (xx, av) {
 
     if (av@n_bin_use == as.integer(1)) {
 
-      .Call("assignLongVec",
+      .Call(assignLongVec,
             av@x_mean,
             xx,
             av@n_xx)
     } else {
 
-      .Call("binNotFullMean",
+      .Call(binNotFullMean,
             av@x_mean,
             xx,
             av@n_xx,
@@ -148,7 +148,7 @@ mewAccum <- function (xx, av) {
 
       av@n_sample[i_new] <- as.integer(av@n_sample[i_new] + 1)
 
-      .Call("addToBin",
+      .Call(addToBin,
             av@xx,
             xx,
             as.integer(i_new - 1), ## C index starts at zero
@@ -166,7 +166,7 @@ mewAccum <- function (xx, av) {
         i_old <- as.integer(1)
       }
 
-      .Call("replaceCol",
+      .Call(replaceCol,
             av@xx,
             xx,
             as.integer(i_new - 1), ## C index starts at zero
@@ -190,7 +190,7 @@ mewAccum <- function (xx, av) {
 
       av@n_part <- as.integer(sum(av@n_sample[i_not_new_not_old]))
 
-      .Call("addxSumPart",
+      .Call(addxSumPart,
             av@x_sum_part,
             av@xx,
             i_not_new_not_old,

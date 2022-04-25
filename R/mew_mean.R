@@ -134,7 +134,7 @@
 #' ## check the mean of the first six elements again
 #' show(av)
 #'
-#' @useDynLib mewAvg
+#' @useDynLib mewAvg, .registration = TRUE
 #'
 #' @export
 mewMean <- function(av) {
@@ -160,7 +160,7 @@ mewMean <- function(av) {
   fract <- (av@m_sample[i_new] + 1.0 - av@n_sample[i_new])/
     (av@m_sample[i_new] + 1.0)
 
-  .Call("meanCalc",
+  .Call(meanCalc,
         av@x_mean,
         av@xx,
         av@x_sum_part,
